@@ -1,5 +1,6 @@
 import express from "express";
 import AuthRoute from "./routes/auth.routes.js";
+import BlogRoute from "./routes/blog.routes.js";
 import ConnectDB from "./config/db.config.js";
 const app = express();
 
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 // Middleware to parse JSON request bodies
 app.use(express.json());
 app.use("/auth", AuthRoute);
+app.use("/blog", BlogRoute);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
